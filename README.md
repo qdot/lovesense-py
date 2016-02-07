@@ -40,7 +40,7 @@ Ports for Lovense toys are 9600 baud, 8/N/1.
 The following is the known command table for all toys. Anything send or received over the serial port is in quotes to denote
 
 | Command         | Description                                                                                                         | Expected Return                                                                                      |
-|-----------------+---------------------------------------------------------------------------------------------------------------------+------------------------------------------------------------------------------------------------------|
+| --------------- | ------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------- |
 | "DeviceType;"   | Returns toy type (A: Lush, B: Max, C: Nora), Firmware version, and bluetooth MAC address, as a colon delimited list | String, e.g. "C:11:0082059AD3BD;"                                                                    |
 | "Battery;"      | Returns battery level of toy                                                                                        | Number, e.g. "85;" meaning 85% battery left                                                          |
 | "PowerOff;"     | Powers the device off                                                                                               | "OK;"                                                                                                |
