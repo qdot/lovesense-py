@@ -37,7 +37,12 @@ Ports for Lovense toys are 9600 baud, 8/N/1.
 
 ### Command Table
 
-The following is the known command table for all toys. Anything send or received over the serial port is in quotes to denote
+The following is the known command table for all toys. Anything send
+or received over the serial port is in quotes to denote communication,
+but should not be sent using quotes if you are implementing your own
+version of this protocol. Commands with ":x" mean that the x should be
+replaced with a number, the range of which is mentioned in the
+description.
 
 | Command         | Description                                                                                                         | Expected Return                                                                                      |
 | --------------- | ------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------- |
@@ -49,7 +54,7 @@ The following is the known command table for all toys. Anything send or received
 | "StopMove:1;"   | Stops accelerometer data stream                                                                                     | "OK;"                                                                                                |
 | "RotateChange;" | Changes the direction of rotation for the stimulator on the Nora toy.                                               | "OK;"                                                                                                |
 | "Vibrate:x;"    | Sets vibration level for toy. Range seems to be 0-20.                                                               | "OK;"                                                                                                |
-| "Rotate:x;"     | Sets rotation speed for Nora toy.                                                                                   | "OK;"                                                                                                |
+| "Rotate:x;"     | Sets rotation speed for Nora toy. Range seems to be 0-20.                                                           | "OK;"                                                                                                |
 | "Air:Level:x;"  | Sets absolute air level for Max toy. Range seems to be 0-5;                                                         | "OK;"                                                                                                |
 | "Air:In:x;"     | Sets relative inflation level, i.e. if currently inflation level is 3, and "Air:In:1" is sent, will inflate to 4    | "OK;"                                                                                                |
 | "Air:Out:x;"    | Sets relative deflation level, i.e. if currently inflation level is 3, and "Air:Out:1" is sent, will inflate to 2   | "OK;"                                                                                                |
