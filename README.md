@@ -6,12 +6,17 @@ of the toy (vibration/rotation/inflation, depending on the toy), as
 well as retrieving information like device type, status, battery
 level, and accelerometer readings.
 
-## Usage
+The library is currently available in the following languages:
 
-Currently, the library consists of a Python module for controlling
-Lovense toys. If you need an implementation in a language not
-currently supported by liblovense, please
-[file an issue on the github tracker](http://github.com/metafetish/liblovense/issues).
+- Python 2 (http://github.com/metafetish/liblovense-py)
+- Max/MSP (http://github.com/metafetish/liblovense-max)
+- Rust (with C Headers) (http://github.com/metafetish/liblovense-rs)
+
+If you need an implementation in a language not currently supported by
+liblovense, please file an issue on the github tracker of the relevant
+project.
+
+## Python Library
 
 All python module code lives in the python/ directory. To install
 the library, use either setup.py or pip.
@@ -58,10 +63,6 @@ description.
 | "Air:Out:x;"    | Sets relative deflation level, i.e. if currently inflation level is 3, and "Air:Out:1" is sent, will inflate to 2   | "OK;"                                                                                                |
 
 
-## Contributors
-
-* Kyle Machulis <kyle@machul.is>
-
 ## Thanks
 
 Thanks to [PenTest Partners](https://www.pentestpartners.com/) for
@@ -74,7 +75,7 @@ in that post.
 
 tl;dr: BSD License
 
-Copyright (c) 2016, Kyle Machulis
+Copyright (c) 2016, Metafetish Project
 All rights reserved.
 
 Redistribution and use in source and binary forms, with or without
@@ -84,20 +85,20 @@ modification, are permitted provided that the following conditions are met:
 * Redistributions in binary form must reproduce the above copyright
   notice, this list of conditions and the following disclaimer in the
   documentation and/or other materials provided with the distribution.
-* Neither the name of the Kyle Machulis/Nonpolynomial Labs nor the
-  names of its contributors may be used to endorse or promote products
-  derived from this software without specific prior written permission.
+* Neither the name of the authors nor the names of its contributors
+  may be used to endorse or promote products derived from this
+  software without specific prior written permission.
 
-THIS SOFTWARE IS PROVIDED BY Kyle Machulis ''AS IS'' AND ANY EXPRESS
+THIS SOFTWARE IS PROVIDED BY The Authors ''AS IS'' AND ANY EXPRESS
 OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
 WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
-DISCLAIMED. IN NO EVENT SHALL Kyle Machulis/Nonpolynomial Labs BE
-LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR
-CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF
-SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR
-BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY,
-WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE
-OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN
-IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE
+DISCLAIMED. IN NO EVENT SHALL The Authors BE LIABLE FOR ANY DIRECT,
+INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES
+(INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR
+SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION)
+HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT,
+STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING
+IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
+POSSIBILITY OF SUCH DAMAGE
 
 
