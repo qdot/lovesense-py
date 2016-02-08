@@ -23,8 +23,6 @@ Profile (SPP) to communicate with the host. This means that the toys
 are exposed as either COM Ports (windows) or tty devices
 (posix/bsd/etc). 
 
-Ports for Lovense toys are 9600 baud, 8/N/1.
-
 ### Protocol Rules
 
 * Commands and replies are strings, using semicolons to mark their end.
