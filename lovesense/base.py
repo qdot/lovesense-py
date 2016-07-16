@@ -1,7 +1,7 @@
 class LovenseCommandBuilder:
 
     START_ACCELEROMETER_STREAM_COMMAND = "StartMove:1;"
-    STOP_ACCELEROMETER_STREAM_COMMAND = "StartMove:1;"
+    STOP_ACCELEROMETER_STREAM_COMMAND = "StopMove:1;"
     CHANGE_ROTATION_DIRECTION_COMMAND = "RotateChange;"
     POWER_OFF_COMMAND = "PowerOff;"
     BATTERY_LEVEL_COMMAND = "BatteryLevel;"
