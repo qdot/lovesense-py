@@ -1,4 +1,4 @@
-class LovenseCommandBuilder:
+class LovesenseCommandBuilder:
 
     START_ACCELEROMETER_STREAM_COMMAND = "StartMove:1;"
     STOP_ACCELEROMETER_STREAM_COMMAND = "StopMove:1;"
@@ -30,7 +30,7 @@ class LovenseCommandBuilder:
         return "Air:Out:%s" % (level)
 
 
-class LovenseBase(LovenseCommandBuilder):
+class LovesenseBase(LovesenseCommandBuilder):
     def __init__(self):
         pass
 

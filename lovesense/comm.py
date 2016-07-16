@@ -1,10 +1,10 @@
-from liblovense.base import LovenseBase
+from .base import LovesenseBase
 from serial import Serial
 
 
-class LovenseSyncSerial(LovenseBase):
+class LovesenseSyncSerial(LovesenseBase):
     def __init__(self):
-        super(LovenseBase, self).__init__()
+        super(LovesenseBase, self).__init__()
         self.port = None
 
     def open(self, com_port):
