@@ -1,4 +1,4 @@
-from liblovense.comm import LovenseSyncSerial
+from lovesense.comm import LovenseSyncSerial
 
 
 def main():
