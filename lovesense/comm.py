@@ -1,14 +1,21 @@
 from .base import LovesenseBase
-from serial import Serial
+from .errors import LovesenseIOError
 
 
-class LovesenseSyncSerial(LovesenseBase):
-    def __init__(self):
+class LovesenseSerialSync(LovesenseBase):
+    def __init__(self, port):
         super(LovesenseBase, self).__init__()
-        self.port = None
+        # Allow derived classes to set up a port to mock serial ports for
+        # tests. There are cleaner ways to mock this, but this will do for now.
+        if not hasattr(self, "port"):
+            # Check argument validity
+            import serial
+            if not port or type(port) is not str:
+                raise LovesenseIOError("Serial port name is missing or is not string!")
 
-    def open(self, com_port):
-        self.port = Serial(com_port)
+            # Just create the port. It's bluetooth so options don't really
+            # matter.
+            self.port = serial.Serial(port)
 
     def close(self):
         if not self.port:
