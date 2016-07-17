@@ -4,7 +4,7 @@ from .errors import LovesenseIOError
 
 class LovesenseSerialSync(LovesenseBase):
     def __init__(self, port):
-        super(LovesenseBase, self).__init__()
+        super(LovesenseSerialSync, self).__init__()
         # Allow derived classes to set up a port to mock serial ports for
         # tests. There are cleaner ways to mock this, but this will do for now.
         if not hasattr(self, "port"):
