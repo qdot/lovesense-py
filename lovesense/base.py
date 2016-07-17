@@ -1,4 +1,4 @@
-class LovesenseCommandBuilder:
+class LovesenseCommandBuilder(object):
 
     START_ACCELEROMETER_STREAM_COMMAND = "StartMove:1;"
     STOP_ACCELEROMETER_STREAM_COMMAND = "StopMove:1;"
