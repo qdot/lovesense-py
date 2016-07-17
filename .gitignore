@@ -1,1 +1,10 @@
 *.pyc
+*.ropeproject*
+build
+cxdist
+dist
+docs/_build
+.cache
+.tox
+*#*
+*.egg-info*
