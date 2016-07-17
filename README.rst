@@ -1,6 +1,49 @@
 lovesense
 =========
 
+.. start-badges
+
+.. list-table::
+    :stub-columns: 1
+
+    * - docs
+      - |docs|
+    * - tests
+      - |travis| |coverage| |health|
+    * - package
+      - |license| |version| |pyversion|
+
+.. |docs| image:: https://readthedocs.org/projects/lovesense-py/badge/?version=latest
+   :target: http://lovesense-py.readthedocs.io/en/latest/?badge=latest
+   :alt: Documentation Status
+
+.. |travis| image:: https://img.shields.io/travis/metafetish/buttplug-py/master.svg?label=build
+   :target: https://travis-ci.org/metafetish/lovesense-py
+   :alt: Travis CI build status
+
+.. |health| image:: https://codeclimate.com/github/metafetish/lovesense-py/badges/gpa.svg
+   :target: https://codeclimate.com/github/metafetish/lovesense-py
+   :alt: Code coverage
+
+.. |coverage| image:: https://codeclimate.com/github/metafetish/lovesense-py/badges/coverage.svg
+   :target: https://codeclimate.com/github/metafetish/lovesense-py/coverage
+   :alt: Code health
+
+.. |license| image:: https://img.shields.io/pypi/l/lovesense.svg
+   :target: https://pypi.python.org/pypi/lovesense/
+   :alt: Latest PyPI version
+
+.. |version| image:: https://img.shields.io/pypi/v/lovesense.svg
+   :target: https://pypi.python.org/pypi/lovesense/
+   :alt: Latest PyPI version
+
+.. |pyversion| image:: https://img.shields.io/pypi/pyversions/lovesense.svg
+   :target: https://pypi.python.org/pypi/lovesense/
+   :alt: Latest PyPI version
+
+
+.. end-badges
+
 lovesense is a library for controlling Lovense sex toys, such as the
 Max, Nora, and Lush. The library allows users to control all aspects of
 the toy (vibration/rotation/inflation, depending on the toy), as well as
