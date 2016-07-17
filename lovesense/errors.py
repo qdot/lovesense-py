@@ -1,0 +1,2 @@
+class LovesenseIOError(Exception):
+    pass
