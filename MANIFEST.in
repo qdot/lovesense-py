@@ -1,0 +1,7 @@
+include README.rst
+include CHANGES.rst
+include setup.py
+include setup.cfg
+include LICENSE
+include requirements.txt
+recursive-include lovesense *.py
