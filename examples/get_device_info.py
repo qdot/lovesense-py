@@ -1,9 +1,8 @@
-from lovesense.comm import LovenseSyncSerial
+from lovesense.comm import LovesenseSerialSync
 
 
 def main():
-    s = LovenseSyncSerial()
-    s.open("/dev/tty.LVS-C011-SPPDev")
+    s = LovesenseSerialSync("/dev/rfcomm0")
     s.deviceType()
     status = s.readStatus()
     print("Device Type: {}".format(status))
