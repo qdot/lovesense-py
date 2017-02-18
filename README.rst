@@ -162,10 +162,17 @@ Thanks
 ------
 
 Thanks to `PenTest Partners <https://www.pentestpartners.com/>`__ for
-doing most of the heavy lifting and `documenting it in their
-blog <https://www.pentestpartners.com/blog/dicking-around-with-dildos-how-to-drive-a-vibrator-with-realterm/>`__.
-This library is mostly just an implementation of the information found
-in that post.
+`documenting their work in their blog. <https://www.pentestpartners.com/blog/dicking-around-with-dildos-how-to-drive-a-vibrator-with-realterm/>`__.
+
+Disclaimer
+----------
+
+The Lovesense project is in no way affiliated with Lovense or any of
+its partners. The documentation and libraries here have been produced
+via clean room reverse engineering methods, and are provided with no
+guarantees, as outlined by the license agreement. Usage of these
+libraries and information is in no way condoned by Lovense and may
+void the warranty of your toy.
 
 License
 -------
