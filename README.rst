@@ -106,57 +106,11 @@ To create documentation:
 Protocol Explanation
 --------------------
 
-Lovense toys connect via bluetooth, and then use the Serial Port Profile
-(SPP) to communicate with the host. This means that the toys are exposed
-as either COM Ports (windows) or tty devices (posix/bsd/etc).
+Protocol documentation is available
+at
+`the lovesense-docs site on readthedocs.org <https://lovesense-docs.readthedocs.org/>`__.
 
-Protocol Rules
-~~~~~~~~~~~~~~
-
--  Commands and replies are strings, using semicolons to mark their end.
--  All commands start with a command identifier word, then possibly
-   either specifiers or levels, delimited by colons. e.g. "Vibrate:5;"
-   would set vibration to 5.
--  Replies are in the context of the command (i.e. sending "Battery;"
-   will just return a number, like "85;"), but can still be colon
-   delimited lists.
-
-Command Table
-~~~~~~~~~~~~~
-
-The following is the known command table for all toys. Anything send or
-received over the serial port is in quotes to denote communication, but
-should not be sent using quotes if you are implementing your own version
-of this protocol. Commands with ":x" mean that the x should be replaced
-with a number, the range of which is mentioned in the description.
-
-+-------------------+-----------------------------------------------------------------------------------------------------------------------+--------------------------------------------------------------------------------------------------------+
-| Command           | Description                                                                                                           | Expected Return                                                                                        |
-+===================+=======================================================================================================================+========================================================================================================+
-| "DeviceType;"     | Returns toy type (A: Lush, B: Max, C: Nora), Firmware version, and bluetooth MAC address, as a colon delimited list   | String, e.g. "C:11:0082059AD3BD;"                                                                      |
-+-------------------+-----------------------------------------------------------------------------------------------------------------------+--------------------------------------------------------------------------------------------------------+
-| "Battery;"        | Returns battery level of toy                                                                                          | Number, e.g. "85;" meaning 85% battery left                                                            |
-+-------------------+-----------------------------------------------------------------------------------------------------------------------+--------------------------------------------------------------------------------------------------------+
-| "PowerOff;"       | Powers the device off                                                                                                 | "OK;"                                                                                                  |
-+-------------------+-----------------------------------------------------------------------------------------------------------------------+--------------------------------------------------------------------------------------------------------+
-| "Status:1;"       | Shows device status. 2 is "normal"                                                                                    | "2;"                                                                                                   |
-+-------------------+-----------------------------------------------------------------------------------------------------------------------+--------------------------------------------------------------------------------------------------------+
-| "StartMove:1;"    | Starts accelerometer data stream.                                                                                     | String, that always starts with 'G', followed by 3 16-bit little-endian numbers e.g. "GEF008312ED00"   |
-+-------------------+-----------------------------------------------------------------------------------------------------------------------+--------------------------------------------------------------------------------------------------------+
-| "StopMove:1;"     | Stops accelerometer data stream                                                                                       | "OK;"                                                                                                  |
-+-------------------+-----------------------------------------------------------------------------------------------------------------------+--------------------------------------------------------------------------------------------------------+
-| "RotateChange;"   | Changes the direction of rotation for the stimulator on the Nora toy.                                                 | "OK;"                                                                                                  |
-+-------------------+-----------------------------------------------------------------------------------------------------------------------+--------------------------------------------------------------------------------------------------------+
-| "Vibrate:x;"      | Sets vibration level for toy. Range seems to be 0-20.                                                                 | "OK;"                                                                                                  |
-+-------------------+-----------------------------------------------------------------------------------------------------------------------+--------------------------------------------------------------------------------------------------------+
-| "Rotate:x;"       | Sets rotation speed for Nora toy. Range seems to be 0-20.                                                             | "OK;"                                                                                                  |
-+-------------------+-----------------------------------------------------------------------------------------------------------------------+--------------------------------------------------------------------------------------------------------+
-| "Air:Level:x;"    | Sets absolute air level for Max toy. Range seems to be 0-5;                                                           | "OK;"                                                                                                  |
-+-------------------+-----------------------------------------------------------------------------------------------------------------------+--------------------------------------------------------------------------------------------------------+
-| "Air:In:x;"       | Sets relative inflation level, i.e. if currently inflation level is 3, and "Air:In:1" is sent, will inflate to 4      | "OK;"                                                                                                  |
-+-------------------+-----------------------------------------------------------------------------------------------------------------------+--------------------------------------------------------------------------------------------------------+
-| "Air:Out:x;"      | Sets relative deflation level, i.e. if currently inflation level is 3, and "Air:Out:1" is sent, will inflate to 2     | "OK;"                                                                                                  |
-+-------------------+-----------------------------------------------------------------------------------------------------------------------+--------------------------------------------------------------------------------------------------------+
+The protocol documentation repository is available `at metafetish/lovesense-docs on github <http://github.com/metafetish/lovesense-docs>`__.
 
 Thanks
 ------
