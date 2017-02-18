@@ -19,8 +19,10 @@ matrix:
       env: TOXENV=py34
     - python: 3.5
       env: TOXENV=py35
-    - python: nightly
+    - python: 3.6
       env: TOXENV=py36
+    - python: nightly
+      env: TOXENV=py37
     - python: 3.4
       env: TOXENV=coverage
     - python: 3.4
