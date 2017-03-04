@@ -1,0 +1,316 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Lovense Protocol Explanation &mdash; lovesense-py 0.1.1 documentation</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="Index"
+              href="genindex.html"/>
+        <link rel="search" title="Search" href="search.html"/>
+    <link rel="top" title="lovesense-py 0.1.1 documentation" href="index.html"/>
+        <link rel="prev" title="Lovesense Python Library Documentation" href="index.html"/> 
+
+  
+  <script src="_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="index.html" class="icon icon-home"> lovesense-py
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.1.1
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Lovense Protocol Explanation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#protocol-rules">Protocol Rules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#command-table">Command Table</a></li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">lovesense-py</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+      <li>Lovense Protocol Explanation</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/protocol.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="lovense-protocol-explanation">
+<h1>Lovense Protocol Explanation<a class="headerlink" href="#lovense-protocol-explanation" title="Permalink to this headline">¶</a></h1>
+<p>Lovense toys connect via bluetooth, and then use the Serial Port Profile
+(SPP) to communicate with the host. This means that the toys are exposed
+as either COM Ports (windows) or tty devices (posix/bsd/etc).</p>
+<div class="section" id="protocol-rules">
+<h2>Protocol Rules<a class="headerlink" href="#protocol-rules" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li>Commands and replies are strings, using semicolons to mark their end.</li>
+<li>All commands start with a command identifier word, then possibly
+either specifiers or levels, delimited by colons. e.g. &#8220;Vibrate:5;&#8221;
+would set vibration to 5.</li>
+<li>Replies are in the context of the command (i.e. sending &#8220;Battery;&#8221;
+will just return a number, like &#8220;85;&#8221;), but can still be colon
+delimited lists.</li>
+</ul>
+</div>
+<div class="section" id="command-table">
+<h2>Command Table<a class="headerlink" href="#command-table" title="Permalink to this headline">¶</a></h2>
+<p>The following is the known command table for all toys. Anything send or
+received over the serial port is in quotes to denote communication, but
+should not be sent using quotes if you are implementing your own version
+of this protocol. Commands with &#8221;:x&#8221; mean that the x should be replaced
+with a number, the range of which is mentioned in the description.</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="8%" />
+<col width="49%" />
+<col width="43%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Command</th>
+<th class="head">Description</th>
+<th class="head">Expected Return</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>&#8220;DeviceType;&#8221;</td>
+<td>Returns toy type (A: Lush, B: Max, C: Nora), Firmware version, and bluetooth MAC address, as a colon delimited list</td>
+<td>String, e.g. &#8220;C:11:0082059AD3BD;&#8221;</td>
+</tr>
+<tr class="row-odd"><td>&#8220;Battery;&#8221;</td>
+<td>Returns battery level of toy</td>
+<td>Number, e.g. &#8220;85;&#8221; meaning 85% battery left</td>
+</tr>
+<tr class="row-even"><td>&#8220;PowerOff;&#8221;</td>
+<td>Powers the device off</td>
+<td>&#8220;OK;&#8221;</td>
+</tr>
+<tr class="row-odd"><td>&#8220;Status:1;&#8221;</td>
+<td>Shows device status. 2 is &#8220;normal&#8221;</td>
+<td>&#8220;2;&#8221;</td>
+</tr>
+<tr class="row-even"><td>&#8220;StartMove:1;&#8221;</td>
+<td>Starts accelerometer data stream.</td>
+<td>String, that always starts with &#8216;G&#8217;, followed by 3 16-bit little-endian numbers e.g. &#8220;GEF008312ED00&#8221;</td>
+</tr>
+<tr class="row-odd"><td>&#8220;StopMove:1;&#8221;</td>
+<td>Stops accelerometer data stream</td>
+<td>&#8220;OK;&#8221;</td>
+</tr>
+<tr class="row-even"><td>&#8220;RotateChange;&#8221;</td>
+<td>Changes the direction of rotation for the stimulator on the Nora toy.</td>
+<td>&#8220;OK;&#8221;</td>
+</tr>
+<tr class="row-odd"><td>&#8220;Vibrate:x;&#8221;</td>
+<td>Sets vibration level for toy. Range seems to be 0-20.</td>
+<td>&#8220;OK;&#8221;</td>
+</tr>
+<tr class="row-even"><td>&#8220;Rotate:x;&#8221;</td>
+<td>Sets rotation speed for Nora toy. Range seems to be 0-20.</td>
+<td>&#8220;OK;&#8221;</td>
+</tr>
+<tr class="row-odd"><td>&#8220;Air:Level:x;&#8221;</td>
+<td>Sets absolute air level for Max toy. Range seems to be 0-5;</td>
+<td>&#8220;OK;&#8221;</td>
+</tr>
+<tr class="row-even"><td>&#8220;Air:In:x;&#8221;</td>
+<td>Sets relative inflation level, i.e. if currently inflation level is 3, and &#8220;Air:In:1&#8221; is sent, will inflate to 4</td>
+<td>&#8220;OK;&#8221;</td>
+</tr>
+<tr class="row-odd"><td>&#8220;Air:Out:x;&#8221;</td>
+<td>Sets relative deflation level, i.e. if currently inflation level is 3, and &#8220;Air:Out:1&#8221; is sent, will inflate to 2</td>
+<td>&#8220;OK;&#8221;</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+
+
+           </div>
+           <div class="articleComments">
+            
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+      
+        <a href="index.html" class="btn btn-neutral" title="Lovesense Python Library Documentation" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2016, The Metafetish Project.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'./',
+            VERSION:'0.1.1',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="_static/jquery.js"></script>
+      <script type="text/javascript" src="_static/underscore.js"></script>
+      <script type="text/javascript" src="_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>
