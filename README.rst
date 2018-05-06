@@ -1,6 +1,8 @@
 lovesense
 =========
 
+**Deprecated**: This library has been deprecated, and further development has been moved to the `Buttplug Project <http://github.com/metafetish/buttplug>`. Please see the README there for more information. Note that this library does not support Lovense Bluetooth LE toys. Support for those is included in the Buttplug library.
+
 .. start-badges
 
 .. list-table::
@@ -45,7 +47,7 @@ lovesense
 .. end-badges
 
 lovesense is a library for controlling Lovense sex toys, such as the
-Max, Nora, and Lush. The library allows users to control all aspects of
+Max and Nora. The library allows users to control all aspects of
 the toy (vibration/rotation/inflation, depending on the toy), as well as
 retrieving information like device type, status, battery level, and
 accelerometer readings.
