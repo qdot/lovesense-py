@@ -1,5 +1,5 @@
-lovesense
-=========
+lovesense-py - DEPRECATED
+=========================
 
 **Deprecated**: This library has been deprecated, and further development has been moved to the `Buttplug Project <http://github.com/metafetish/buttplug>`. Please see the README there for more information. Note that this library does not support Lovense Bluetooth LE toys. Support for those is included in the Buttplug library.
 
